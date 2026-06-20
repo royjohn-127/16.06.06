@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>For Daphine - Happy Birthday!!!</title>
+<meta name="description" content="A little corner of the internet made just for you, Daphine.">
+
+<!--
+  ============================================================================
+  FOR DAPHINE — a birthday website by RJ
+  ============================================================================
+  This file is organized into the same chapters you'll scroll through:
+    1. Hero / Opening Screen
+    2. Things I Love About You
+    3. The Letter
+    4. Klawie — Forever Loved
+    5. Memory Gallery
+    6. Secret Messages
+    7. Music Player (floating, lives across the whole page)
+    8. Finale — One Last Thing
+
+  WHERE TO CHANGE THINGS:
+  - Her name, your name, the birthday date → search this file for "Daphine",
+    "RJ", and "June 16" and replace them.
+  - Every block of writing (letters, love-list, secret notes) is plain text
+    inside the HTML below — just type over it.
+  - Photos live in assets/images/ — swap the files or change the "src"
+    paths. Filenames are descriptive (gallery-01.jpg, klawie-01.jpg, etc).
+  - The full walkthrough is in README.md.
+  ============================================================================
+-->
+
+<!-- Google Fonts: an elegant display serif, a clean body sans, and a
+     handwritten script for emotional accents. These load from Google's
+     servers, so an internet connection is needed the first time the page
+     opens (the browser then caches them). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========================================================================
+     PRELOADER — a soft heart that beats while the page warms up. Removed
+     by script.js once everything has loaded, or after a short timeout.
+     ======================================================================== -->
+<div id="preloader" aria-hidden="true">
+  <div class="preloader-heart">
+    <svg viewBox="0 0 32 29" width="40" height="40">
+      <path d="M16 29C16 29 0 19.5 0 9.5C0 4.25 4 0 9 0C12 0 14.5 1.5 16 4C17.5 1.5 20 0 23 0C28 0 32 4.25 32 9.5C32 19.5 16 29 16 29Z" fill="currentColor"/>
+    </svg>
+  </div>
+  <p class="preloader-text">loading something for you&hellip;</p>
+</div>
+
+<!-- ========================================================================
+     AMBIENT CANVAS — drifting petals used behind the Hero section, and a
+     gentle starfield reused in the Finale. One <canvas> per effect, both
+     controlled from script.js, both pause automatically off-screen and
+     respect "reduce motion" settings.
+     ======================================================================== -->
+<canvas id="petal-canvas" aria-hidden="true"></canvas>
+
+<!-- ========================================================================
+     STORY THREAD — a slim vertical guide down the left edge (desktop only)
+     that marks every chapter with a small icon. It fills in gold as you
+     scroll, like a thread stitching the story together. Purely decorative
+     navigation — clicking a dot jumps to that chapter.
+     ======================================================================== -->
+<nav class="story-thread" aria-label="Chapter navigation">
+  <div class="thread-line"><div class="thread-fill" id="threadFill"></div></div>
+  <ul>
+    <li><a href="#hero" class="thread-dot" data-section="hero" aria-label="Welcome"><span class="dot-icon">♡</span></a></li>
+    <li><a href="#love-list" class="thread-dot" data-section="love-list" aria-label="Things I love about you"><span class="dot-icon">✦</span></a></li>
+    <li><a href="#letter" class="thread-dot" data-section="letter" aria-label="The letter"><span class="dot-icon">✉</span></a></li>
+    <li><a href="#klawie" class="thread-dot" data-section="klawie" aria-label="Klawie"><span class="dot-icon">🐾</span></a></li>
+    <li><a href="#gallery" class="thread-dot" data-section="gallery" aria-label="Memory gallery"><span class="dot-icon">❖</span></a></li>
+    <li><a href="#secrets" class="thread-dot" data-section="secrets" aria-label="Secret messages"><span class="dot-icon">★</span></a></li>
+    <li><a href="#finale" class="thread-dot" data-section="finale" aria-label="The finale"><span class="dot-icon">✺</span></a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ========================================================================
+     1. HERO — OPENING SCREEN
+     Full-screen welcome with her name, an animated gradient, drifting
+     petals (drawn on #petal-canvas), and a soft circular portrait.
+     ======================================================================== -->
+<section id="hero" class="section hero">
+  <div class="hero-gradient" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="eyebrow hand-text">for the girl who has my whole heart</p>
+
+    <div class="hero-portrait">
+      <!-- CUSTOMIZE: swap this photo for any favorite picture of her -->
+      <img src="assets/images/hero-daphine.jpg" alt="Daphine smiling" loading="eager">
+      <span class="portrait-ring" aria-hidden="true"></span>
+    </div>
+
+    <h1 class="hero-name">
+      <span class="hero-name-small">happy birthday,</span>
+      Daphine
+    </h1>
+
+    <p class="hero-sub">June 16th - the day the world got immeasurably better.</p>
+
+    <button class="scroll-cue" id="scrollCue" aria-label="Scroll to begin the story">
+      <span>begin our story</span>
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v15M12 19l-6-6M12 19l6-6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ========================================================================
+     2. THINGS I LOVE ABOUT YOU
+     A grid of flip cards. Click (or tap) a card to reveal the reason
+     behind it. CUSTOMIZE: edit .card-front / .card-back text freely, or
+     duplicate a <button class="love-card"> block to add more cards.
+     ======================================================================== -->
+<section id="love-list" class="section love-list">
+  <div class="section-head">
+    <p class="eyebrow">chapter two</p>
+    <h2>Things I Love About You</h2>
+    <p class="section-intro">A list I could never actually finish - but here are eight reasons to start with. Tap a card to open it.</p>
+  </div>
+
+  <div class="love-grid">
+
+    <button class="love-card" data-flipped="false">
+      <div class="love-card-inner">
+        <div class="card-face card-front">
+          <span class="card-icon">☺</span>
+          <h3>Your Smile</h3>
+          <span class="tap-hint">tap to open</span>
+        </div>
+        <div class="card-face card-back">
+          <p>It reaches your eyes first, every single time - and somehow makes whoever sees it smile back before they even know why.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="love-card" data-flipped="false">
+      <div class="love-card-inner">
+        <div class="card-face card-front">
+          <span class="card-icon">♫</span>
+          <h3>Your Laugh</h3>
+          <span class="tap-hint">tap to open</span>
+        </div>
+        <div class="card-face card-back">
+          <p>Loud, sudden, completely unfiltered - the kind that makes other people in the room laugh too, just from hearing it. My favorite sound, easily.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="love-card" data-flipped="false">
+      <div class="love-card-inner">
+        <div class="card-face card-front">
+          <span class="card-icon">✦</span>
+          <h3>Your Kindness</h3>
+          <span class="tap-hint">tap to open</span>
+        </div>
+        <div class="card-face card-back">
+          <p>You notice the people everyone else looks past. That's rare. That's entirely you. So excited about the new podcast btw ; )</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="love-card" data-flipped="false">
+      <div class="love-card-inner">
+        <div class="card-face card-front">
+          <span class="card-icon">❀</span>
+          <h3>How You Care</h3>
+          <span class="tap-hint">tap to open</span>
+        </div>
+        <div class="card-face card-back">
+          <p>You carry other people's bad days like they're your own to fix - and somehow still have love left over for everyone around you.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="love-card" data-flipped="false">
+      <div class="love-card-inner">
+        <div class="card-face card-front">
+          <span class="card-icon">✺</span>
+          <h3>Ordinary Days</h3>
+          <span class="tap-hint">tap to open</span>
+        </div>
+        <div class="card-face card-back">
+          <p>A chill hangout day with you turns into a memory. I genuinely don't know how you do that.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="love-card" data-flipped="false">
+      <div class="love-card-inner">
+        <div class="card-face card-front">
+          <span class="card-icon">♡</span>
+          <h3>Your Strength</h3>
+          <span class="tap-hint">tap to open</span>
+        </div>
+        <div class="card-face card-back">
+          <p>You've carried things that could've hardened anyone, and chose to stay soft and warm anyway. That isn't easy. That's real strength.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="love-card" data-flipped="false">
+      <div class="love-card-inner">
+        <div class="card-face card-front">
+          <span class="card-icon">🐾</span>
+          <h3>Your Cat-Mom Heart</h3>
+          <span class="tap-hint">tap to open</span>
+        </div>
+        <div class="card-face card-back">
+          <p>The way you loved Klawie told me everything I needed to know about how deeply you're capable of loving something(and taking care of cats, literally). Lucky doesn't begin to cover it.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="love-card" data-flipped="false">
+      <div class="love-card-inner">
+        <div class="card-face card-front">
+          <span class="card-icon">∞</span>
+          <h3>Simply, You</h3>
+          <span class="tap-hint">tap to open</span>
+        </div>
+        <div class="card-face card-back">
+          <p>Every list runs out of words eventually. The truth underneath all of them is just - I love you. All of you. Every version. Every day 💕.</p>
+        </div>
+      </div>
+    </button>
+
+  </div>
+</section>
+
+<!-- ========================================================================
+     3. THE LETTER
+     A handwritten-style letter that types itself out as it scrolls into
+     view. CUSTOMIZE: the full letter text is inside #letterText — edit
+     freely, the typewriter effect works with any length of text.
+     ======================================================================== -->
+<section id="letter" class="section letter-section">
+  <div class="section-head">
+    <p class="eyebrow">chapter three</p>
+    <h2>A Letter, Just For You</h2>
+  </div>
+
+  <div class="letter-paper">
+    <span class="wax-seal" aria-hidden="true">RJ</span>
+    <div class="letter-body">
+      <p class="letter-date hand-text">June 16th</p>
+      <div id="letterText" class="letter-text hand-text"
+           data-full-text="Dearest DaphDaph,
+
+If I had to put everything you mean to me into words, this letter would never end - so I'll just start, and let it run as long as it needs to.
+
+Every year on the 16th of June, I find a new reason to be grateful the world made you. Twenty trips around the sun, and you still somehow make ordinary Tuesdays feel like main-character moments.
+
+My favorite memory of us... It's the long phone calls about nothing. It's you(or me) sending three voice notes in a row because you forgot what you were saying halfway through. It's just time with you. Any minute spent with you quietly becomes my favorite minute.
+
+I wanted to fill this whole page with pink and multicoloured flowers, because somehow that's always reminded me of you — soft, colourful, and a little impossible not to smile at.
+
+So happy birthday booboo. Here's to every year I get to watch you become even more yourself, and to all the ordinary days we still get to turn into something worth remembering.
+
+With love,
+RJ">
+      </div>
+      <span class="letter-cursor" aria-hidden="true">|</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     4. KLAWIE — FOREVER LOVED
+     A gentle, warm memorial. Soft fireflies drift in the background and a
+     trail of paw prints leads through the section. CUSTOMIZE: cat's name,
+     photos, and the memory text are clearly marked below.
+     ======================================================================== -->
+<section id="klawie" class="section klawie-section">
+  <div class="firefly-field" aria-hidden="true"></div>
+  <div class="paw-trail" aria-hidden="true">
+    <span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span>
+  </div>
+
+  <div class="section-head">
+    <p class="eyebrow">chapter four</p>
+    <h2>Forever Loved</h2>
+    <!-- CUSTOMIZE: cat's name appears in several places below — search "Klawie" -->
+    <p class="section-intro">In memory of Klawie</p>
+  </div>
+
+  <div class="memorial-card">
+    <div class="memorial-photos">
+      <!-- CUSTOMIZE: swap these two photos for your favorites of Klawie -->
+      <img src="assets/images/klawie-01.jpg" alt="Klawie the cat" class="memorial-photo memorial-photo--1">
+      <img src="assets/images/klawie-02.jpg" alt="Klawie the cat resting" class="memorial-photo memorial-photo--2">
+    </div>
+
+    <div class="memorial-text">
+      <h3 class="hand-text">Klawie</h3>
+      <p>Some companions don't need words to make a house feel like home. Klawie did that just by being there - curled at the foot of the bed, wrapping herself around your neck for attention, watching over you in that quiet, certain way only cats can.</p>
+      <p>I know how much love you gave Klawie, Daphine, and how much love Klawie gave right back. That kind of love doesn't disappear. It just changes shape - from something that made you smile every day, into a memory that still does.</p>
+      <p class="memorial-quote hand-text">"Some pets are never forgotten. They leave paw prints on our hearts forever."</p>
+      <p>This little corner of the page is for every nap in the sun, every slow blink, every bit of comfort given without ever being asked. Forever loved. Never forgotten.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     5. MEMORY GALLERY
+     Polaroid-style photo grid. Click any photo to open it large in the
+     lightbox. CUSTOMIZE: add/remove <figure class="polaroid"> blocks, or
+     just swap the image files in assets/images/.
+     ======================================================================== -->
+<section id="gallery" class="section gallery-section">
+  <div class="section-head">
+    <p class="eyebrow">chapter five</p>
+    <h2>Memory Gallery</h2>
+    <p class="section-intro">A handful of moments, pinned up like polaroids.</p>
+  </div>
+
+  <div class="polaroid-grid">
+    <figure class="polaroid" data-rotate="-4" tabindex="0">
+      <img src="assets/images/gallery-01.jpg" alt="Daphine smiling, holding her phone">
+      <figcaption class="hand-text">that smile gets me every time</figcaption>
+    </figure>
+    <figure class="polaroid" data-rotate="3" tabindex="0">
+      <img src="assets/images/gallery-02.jpg" alt="Daphine wearing a red cap, making a face">
+      <figcaption class="hand-text">main character energy</figcaption>
+    </figure>
+    <figure class="polaroid" data-rotate="-2" tabindex="0">
+      <img src="assets/images/gallery-03.jpg" alt="Daphine taking a mirror photo in the car">
+      <figcaption class="hand-text">who's that cutie patootie</figcaption>
+    </figure>
+    <figure class="polaroid" data-rotate="5" tabindex="0">
+      <img src="assets/images/gallery-04.jpg" alt="Daphine in the car, playful kiss-mark filter">
+      <figcaption class="hand-text">mwah!</figcaption>
+    </figure>
+    <figure class="polaroid" data-rotate="-3" tabindex="0">
+      <img src="assets/images/gallery-05.jpg" alt="Daphine taking a mirror selfie">
+      <figcaption class="hand-text">soo cute</figcaption>
+    </figure>
+    <figure class="polaroid" data-rotate="2" tabindex="0">
+      <img src="assets/images/gallery-06.jpg" alt="Daphine wearing red sunglasses">
+      <figcaption class="hand-text">certified cutie</figcaption>
+    </figure>
+    <figure class="polaroid" data-rotate="-5" tabindex="0">
+      <img src="assets/images/gallery-07.jpg" alt="Daphine with a dog">
+      <figcaption class="hand-text">soft heart, always</figcaption>
+    </figure>
+    <figure class="polaroid" data-rotate="4" tabindex="0">
+      <img src="assets/images/gallery-08.jpg" alt="Daphine at dinner, candlelight">
+      <figcaption class="hand-text">my favorite</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ========================================================================
+     6. SECRET MESSAGES
+     A handful of clickable icons, each hiding a small note. CUSTOMIZE:
+     edit data-message on any .secret-item, or add a new <button> following
+     the same pattern to add more secrets.
+     ======================================================================== -->
+<section id="secrets" class="section secrets-section">
+  <div class="section-head">
+    <p class="eyebrow">chapter six</p>
+    <h2>A Few Secret Messages</h2>
+    <p class="section-intro">I hid some things in here. Go on, tap them.</p>
+  </div>
+
+  <div class="secrets-grid">
+    <button class="secret-item" data-message="Did you know? Every time I look up and find a star, I think about how lucky I am to have you down here with me. (we should have some wine go stargazing some other time btw)">
+      <span class="secret-icon">★</span>
+      <span class="secret-label">a star</span>
+    </button>
+    <button class="secret-item" data-message="Random: The way you never stop laughing whenever you're telling me something that is REALLY funny. I love it so much.">
+      <span class="secret-icon">♡</span>
+      <span class="secret-label">a heart</span>
+    </button>
+    <button class="secret-item" data-message="Surprise! You officially have unlimited cuddles hugs coming your way, no expiry date.">
+      <span class="secret-icon">✺</span>
+      <span class="secret-label">a gift</span>
+    </button>
+    <button class="secret-item" data-message="Just so you know — somewhere out there, I am always rooting for you. Every single day, no exceptions.">
+      <span class="secret-icon">✉</span>
+      <span class="secret-label">a letter</span>
+    </button>
+    <button class="secret-item" data-message="Klawie says hi. (Okay, I made that up — but I like to think it's true.)">
+      <span class="secret-icon">🐾</span>
+      <span class="secret-label">a paw print</span>
+    </button>
+  </div>
+</section>
+
+<!-- ========================================================================
+     7. FINALE — ONE LAST THING
+     Animated stars and floating hearts, a closing birthday wish, and a
+     reveal button. CUSTOMIZE: the closing message lives in the
+     #finalMessage paragraph below.
+     ======================================================================== -->
+<section id="finale" class="section finale-section">
+  <canvas id="finale-canvas" aria-hidden="true"></canvas>
+  <div class="floating-hearts" id="floatingHearts" aria-hidden="true"></div>
+
+  <div class="finale-content">
+    <p class="eyebrow">final chapter</p>
+    <h2 class="hero-name finale-name">Happy Birthday,<br>Daphine</h2>
+    <p class="finale-wish">However you're spending today, I hope it's soft, joyful, and entirely yours. You deserve every good thing coming to you this year - and every year after.</p>
+
+    <button id="oneLastThing" class="finale-button">One Last Thing&hellip;</button>
+
+    <div id="finalReveal" class="final-reveal" hidden>
+      <p id="finalMessage" class="hand-text final-message">No matter how many birthdays come and go, I hope I get to celebrate them with you.</p>
+      <p class="final-signature">- RJ</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========================================================================
+     FLOATING MUSIC PLAYER
+     Lives across the whole page (fixed position). CUSTOMIZE: drop your
+     mp3 file into assets/music/ and update the <source> path below if you
+     rename it. Track title/artist text is editable in this block.
+     ======================================================================== -->
+<div class="music-player" id="musicPlayer">
+  <button class="music-toggle" id="musicToggle" aria-label="Play music">
+    <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><path d="M7 5v14l12-7z" fill="currentColor"/></svg>
+    <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+  </button>
+  <div class="music-info">
+    <span class="music-title">A Couple Minutes</span>
+    <span class="music-artist">Olivia Dean</span>
+  </div>
+  <div class="music-bars" aria-hidden="true"><span></span><span></span><span></span></div>
+</div>
+
+<!-- The actual audio element. CUSTOMIZE: place your mp3 at
+     assets/music/a-couple-minutes.mp3 — see README.md for details. -->
+<audio id="bgMusic" loop preload="none">
+  <source src="assets/music/a-couple-minutes.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ========================================================================
+     LIGHTBOX — used by the Memory Gallery to show a full-size photo.
+     ======================================================================== -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close photo">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+  <p class="hand-text" id="lightboxCaption"></p>
+</div>
+
+<!-- ========================================================================
+     SECRET MESSAGE MODAL — used by the Secret Messages section.
+     ======================================================================== -->
+<div class="secret-modal" id="secretModal" hidden>
+  <div class="secret-modal-card">
+    <button class="secret-modal-close" id="secretModalClose" aria-label="Close message">&times;</button>
+    <p id="secretModalText" class="hand-text"></p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>made with love, by RJ - for Daphine, every June 16th</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
