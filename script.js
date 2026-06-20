@@ -1,5 +1,5 @@
 /* ============================================================================
-   FOR DAPHINE — SCRIPT
+   FOR DAPHINE - SCRIPT
    ============================================================================
    Organized to match index.html / style.css:
      1. Preloader
@@ -13,7 +13,7 @@
      9. Music player
      10. Finale (starfield, floating hearts, reveal button)
 
-   Nothing here needs a build step — it's plain JavaScript, loaded once at
+   Nothing here needs a build step - it's plain JavaScript, loaded once at
    the bottom of index.html after the page content.
    ============================================================================ */
 
@@ -133,7 +133,7 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
 })();
 
 /* ----------------------------------------------------------------------------
-   3. STORY THREAD — scroll spy
+   3. STORY THREAD - scroll spy
    Highlights the active chapter dot and fills the gold thread line based on
    overall scroll progress through <main>.
    ---------------------------------------------------------------------------- */
@@ -166,7 +166,7 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
 })();
 
 /* ----------------------------------------------------------------------------
-   4. LOVE LIST — flip cards
+   4. LOVE LIST - flip cards
    Clicking a card toggles a data-flipped attribute, which the CSS uses to
    rotate the card 180deg and reveal the back face.
    ---------------------------------------------------------------------------- */
@@ -180,7 +180,7 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
 })();
 
 /* ----------------------------------------------------------------------------
-   5. LETTER — typewriter effect
+   5. LETTER - typewriter effect
    The full letter text lives in the data-full-text attribute (see
    index.html) so it stays easy to edit as plain text. This script types it
    out character by character once the letter scrolls into view, and only
@@ -206,7 +206,7 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
     }
 
     let i = 0;
-    const speed = 18; // ms per character — tune for a faster/slower reveal
+    const speed = 18; // ms per character - tune for a faster/slower reveal
     function step() {
       el.textContent = fullText.slice(0, i);
       i++;
@@ -227,7 +227,7 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
 })();
 
 /* ----------------------------------------------------------------------------
-   6. KLAWIE — fireflies
+   6. KLAWIE - fireflies
    Spawns small glowing dots that drift upward inside the firefly field.
    Generated continuously while the section is in view.
    ---------------------------------------------------------------------------- */
@@ -265,7 +265,7 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
 })();
 
 /* ----------------------------------------------------------------------------
-   7. GALLERY — polaroid rotation + lightbox
+   7. GALLERY - polaroid rotation + lightbox
    Each polaroid gets a slight random-feeling tilt from its data-rotate
    attribute (set in the HTML), and clicking any photo opens it large in a
    simple lightbox overlay.
@@ -307,7 +307,7 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
 })();
 
 /* ----------------------------------------------------------------------------
-   8. SECRET MESSAGES — modal
+   8. SECRET MESSAGES - modal
    Each .secret-item button stores its note in data-message. Clicking it
    opens a small centered modal with that text.
    ---------------------------------------------------------------------------- */
@@ -334,7 +334,7 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
    9. MUSIC PLAYER
    A simple play/pause toggle for the floating player. Browsers block
    autoplay with sound, so the song only starts once she actually taps
-   play — that tap also satisfies the browser's autoplay policy.
+   play - that tap also satisfies the browser's autoplay policy.
    ---------------------------------------------------------------------------- */
 (function musicPlayer() {
   const audio = document.getElementById('bgMusic');
@@ -347,7 +347,7 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
     if (audio.paused) {
       audio.play().catch(() => {
         // If the mp3 file hasn't been added yet, playback will fail
-        // silently here — see README.md to add assets/music/a-couple-minutes.mp3
+        // silently here - see README.md to add assets/music/a-couple-minutes.mp3
       });
     } else {
       audio.pause();
@@ -369,7 +369,7 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
 })();
 
 /* ----------------------------------------------------------------------------
-   10. FINALE — starfield, floating hearts, reveal button
+   10. FINALE - starfield, floating hearts, reveal button
    ---------------------------------------------------------------------------- */
 
 // --- 10a. Starfield canvas: gentle twinkling stars across the finale. ---

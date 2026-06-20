@@ -1,8 +1,8 @@
 /* ============================================================================
-   FOR DAPHINE — STYLESHEET
+   FOR DAPHINE - STYLESHEET
    ============================================================================
    Organized to match index.html, top to bottom:
-     0. Design tokens (colors, fonts, spacing) — CHANGE COLORS HERE
+     0. Design tokens (colors, fonts, spacing) - CHANGE COLORS HERE
      1. Reset & base
      2. Preloader
      3. Story thread nav
@@ -30,7 +30,7 @@
   --cream-deep:   #F2E6D8;   /* secondary background, cards */
   --blush:        #F6D2D6;   /* soft pink accents, gradients */
   --blush-soft:   #FBE6E8;
-  --dusty-rose:   #C98A93;   /* primary accent — buttons, links */
+  --dusty-rose:   #C98A93;   /* primary accent - buttons, links */
   --rose-deep:    #A05F6B;   /* hover states, deeper accent */
   --lavender:     #CDB8E0;   /* secondary accent, gradients */
   --lavender-soft:#E9DFF3;
@@ -136,7 +136,7 @@ a { color: inherit; }
 }
 
 /* ----------------------------------------------------------------------------
-   3. STORY THREAD NAV (desktop only — see responsive section)
+   3. STORY THREAD NAV (desktop only - see responsive section)
    ---------------------------------------------------------------------------- */
 .story-thread {
   position: fixed; left: 28px; top: 50%; transform: translateY(-50%);
@@ -247,7 +247,7 @@ a { color: inherit; }
 @keyframes bobCue { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
 
 /* ----------------------------------------------------------------------------
-   5. LOVE LIST — FLIP CARDS
+   5. LOVE LIST - FLIP CARDS
    ---------------------------------------------------------------------------- */
 .love-grid {
   display: grid;
@@ -388,7 +388,7 @@ a { color: inherit; }
 }
 
 /* ----------------------------------------------------------------------------
-   8. GALLERY — POLAROIDS + LIGHTBOX
+   8. GALLERY - POLAROIDS + LIGHTBOX
    ---------------------------------------------------------------------------- */
 .polaroid-grid {
   display: grid;
@@ -583,7 +583,7 @@ a { color: inherit; }
 }
 
 /* ----------------------------------------------------------------------------
-   14. REDUCED MOTION — respects OS-level accessibility setting
+   14. REDUCED MOTION - respects OS-level accessibility setting
    ---------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

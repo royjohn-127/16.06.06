@@ -8,24 +8,24 @@
 
 <!--
   ============================================================================
-  FOR DAPHINE — a birthday website by RJ
+  FOR DAPHINE - a birthday website by RJ
   ============================================================================
   This file is organized into the same chapters you'll scroll through:
     1. Hero / Opening Screen
     2. Things I Love About You
     3. The Letter
-    4. Klawie — Forever Loved
+    4. Klawie - Forever Loved
     5. Memory Gallery
     6. Secret Messages
     7. Music Player (floating, lives across the whole page)
-    8. Finale — One Last Thing
+    8. Finale - One Last Thing
 
   WHERE TO CHANGE THINGS:
   - Her name, your name, the birthday date → search this file for "Daphine",
     "RJ", and "June 16" and replace them.
   - Every block of writing (letters, love-list, secret notes) is plain text
-    inside the HTML below — just type over it.
-  - Photos live in assets/images/ — swap the files or change the "src"
+    inside the HTML below - just type over it.
+  - Photos live in assets/images/ - swap the files or change the "src"
     paths. Filenames are descriptive (gallery-01.jpg, klawie-01.jpg, etc).
   - The full walkthrough is in README.md.
   ============================================================================
@@ -39,12 +39,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 
+<link rel="icon" href="/assets/images/favicon.jpg" type="image/x-icon">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- ========================================================================
-     PRELOADER — a soft heart that beats while the page warms up. Removed
+     PRELOADER - a soft heart that beats while the page warms up. Removed
      by script.js once everything has loaded, or after a short timeout.
      ======================================================================== -->
 <div id="preloader" aria-hidden="true">
@@ -57,7 +58,7 @@
 </div>
 
 <!-- ========================================================================
-     AMBIENT CANVAS — drifting petals used behind the Hero section, and a
+     AMBIENT CANVAS - drifting petals used behind the Hero section, and a
      gentle starfield reused in the Finale. One <canvas> per effect, both
      controlled from script.js, both pause automatically off-screen and
      respect "reduce motion" settings.
@@ -65,10 +66,10 @@
 <canvas id="petal-canvas" aria-hidden="true"></canvas>
 
 <!-- ========================================================================
-     STORY THREAD — a slim vertical guide down the left edge (desktop only)
+     STORY THREAD - a slim vertical guide down the left edge (desktop only)
      that marks every chapter with a small icon. It fills in gold as you
      scroll, like a thread stitching the story together. Purely decorative
-     navigation — clicking a dot jumps to that chapter.
+     navigation - clicking a dot jumps to that chapter.
      ======================================================================== -->
 <nav class="story-thread" aria-label="Chapter navigation">
   <div class="thread-line"><div class="thread-fill" id="threadFill"></div></div>
@@ -86,7 +87,7 @@
 <main>
 
 <!-- ========================================================================
-     1. HERO — OPENING SCREEN
+     1. HERO - OPENING SCREEN
      Full-screen welcome with her name, an animated gradient, drifting
      petals (drawn on #petal-canvas), and a soft circular portrait.
      ======================================================================== -->
@@ -241,7 +242,7 @@
 <!-- ========================================================================
      3. THE LETTER
      A handwritten-style letter that types itself out as it scrolls into
-     view. CUSTOMIZE: the full letter text is inside #letterText — edit
+     view. CUSTOMIZE: the full letter text is inside #letterText - edit
      freely, the typewriter effect works with any length of text.
      ======================================================================== -->
 <section id="letter" class="section letter-section">
@@ -263,7 +264,7 @@ Every year on the 16th of June, I find a new reason to be grateful the world mad
 
 My favorite memory of us... It's the long phone calls about nothing. It's you(or me) sending three voice notes in a row because you forgot what you were saying halfway through. It's just time with you. Any minute spent with you quietly becomes my favorite minute.
 
-I wanted to fill this whole page with pink and multicoloured flowers, because somehow that's always reminded me of you — soft, colourful, and a little impossible not to smile at.
+I wanted to fill this whole page with pink and multicoloured flowers, because somehow that's always reminded me of you - soft, colourful, and a little impossible not to smile at.
 
 So happy birthday booboo. Here's to every year I get to watch you become even more yourself, and to all the ordinary days we still get to turn into something worth remembering.
 
@@ -276,7 +277,7 @@ RJ">
 </section>
 
 <!-- ========================================================================
-     4. KLAWIE — FOREVER LOVED
+     4. KLAWIE - FOREVER LOVED
      A gentle, warm memorial. Soft fireflies drift in the background and a
      trail of paw prints leads through the section. CUSTOMIZE: cat's name,
      photos, and the memory text are clearly marked below.
@@ -290,7 +291,7 @@ RJ">
   <div class="section-head">
     <p class="eyebrow">chapter four</p>
     <h2>Forever Loved</h2>
-    <!-- CUSTOMIZE: cat's name appears in several places below — search "Klawie" -->
+    <!-- CUSTOMIZE: cat's name appears in several places below - search "Klawie" -->
     <p class="section-intro">In memory of Klawie</p>
   </div>
 
@@ -386,11 +387,11 @@ RJ">
       <span class="secret-icon">✺</span>
       <span class="secret-label">a gift</span>
     </button>
-    <button class="secret-item" data-message="Just so you know — somewhere out there, I am always rooting for you. Every single day, no exceptions.">
+    <button class="secret-item" data-message="Just so you know - somewhere out there, I am always rooting for you. Every single day, no exceptions.">
       <span class="secret-icon">✉</span>
       <span class="secret-label">a letter</span>
     </button>
-    <button class="secret-item" data-message="Klawie says hi. (Okay, I made that up — but I like to think it's true.)">
+    <button class="secret-item" data-message="Klawie says hi. (Okay, I made that up - but I like to think it's true.)">
       <span class="secret-icon">🐾</span>
       <span class="secret-label">a paw print</span>
     </button>
@@ -398,7 +399,7 @@ RJ">
 </section>
 
 <!-- ========================================================================
-     7. FINALE — ONE LAST THING
+     7. FINALE - ONE LAST THING
      Animated stars and floating hearts, a closing birthday wish, and a
      reveal button. CUSTOMIZE: the closing message lives in the
      #finalMessage paragraph below.
@@ -442,13 +443,13 @@ RJ">
 </div>
 
 <!-- The actual audio element. CUSTOMIZE: place your mp3 at
-     assets/music/a-couple-minutes.mp3 — see README.md for details. -->
+     assets/music/a-couple-minutes.mp3 - see README.md for details. -->
 <audio id="bgMusic" loop preload="none">
   <source src="assets/music/a-couple-minutes.mp3" type="audio/mpeg">
 </audio>
 
 <!-- ========================================================================
-     LIGHTBOX — used by the Memory Gallery to show a full-size photo.
+     LIGHTBOX - used by the Memory Gallery to show a full-size photo.
      ======================================================================== -->
 <div class="lightbox" id="lightbox" hidden>
   <button class="lightbox-close" id="lightboxClose" aria-label="Close photo">&times;</button>
@@ -457,7 +458,7 @@ RJ">
 </div>
 
 <!-- ========================================================================
-     SECRET MESSAGE MODAL — used by the Secret Messages section.
+     SECRET MESSAGE MODAL - used by the Secret Messages section.
      ======================================================================== -->
 <div class="secret-modal" id="secretModal" hidden>
   <div class="secret-modal-card">
