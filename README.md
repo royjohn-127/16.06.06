@@ -18,10 +18,8 @@ romantic-site/
     │   ├── gallery-01.jpg … gallery-08.jpg   (Memory Gallery polaroids)
     │   └── klawie-01.jpg, klawie-02.jpg      (Klawie memorial photos)
     └── music/
-        └── PUT_SONG_HERE.txt   ← instructions; replace with the real mp3 (see §2)
+        └── replace with the real mp3
 ```
-
-Photos already included come straight from the ones you uploaded - I picked the clearest, most flattering shots of Daphine and of Klawie. Everything is easy to swap; see §4.
 
 ---
 
@@ -30,26 +28,18 @@ Photos already included come straight from the ones you uploaded - I picked the 
 **To preview it:** double-click `index.html` - it opens in your default browser. That's it, no server or install required.
 
 **To add the song** ("A Couple Minutes" by Olivia Dean):
-1. Get the mp3 file (from a purchase, your own library, or wherever you'd normally source music you own).
+1. Get the mp3 file.
 2. Rename it exactly to `a-couple-minutes.mp3`.
-3. Drop it into `assets/music/`, replacing the placeholder text file.
+3. Drop it into `assets/music/`.
 4. Reload the page - the floating music player in the bottom-right corner will now play it when tapped.
 
-Browsers block audio from auto-playing with sound, so the song intentionally starts only when she taps the play button - that's expected, not a bug.
-
-**To send it to her:** the simplest way is to zip the whole `romantic-site` folder and share it directly (AirDrop, email, Google Drive, WeTransfer). If you'd rather she just click a link, you can deploy it for free on a host like Netlify, Vercel, or GitHub Pages - drag the folder onto netlify.com/drop and it gives you a shareable link in seconds.
+Browsers block audio from auto-playing with sound, so the song intentionally starts only when she taps the play button.
 
 ---
 
 ## 3. Customization guide
 
-Everything below is plain text or simple values inside `index.html` and `style.css` - no coding knowledge required, just find-and-replace.
-
-### Names & date
-Search `index.html` for:
-- `Daphine` - her name, appears in the hero, letter, and finale.
-- `RJ` - your name, appears in the letter signature and footer.
-- `June 16` / `June 16th` - her birthday date, appears in the hero subtitle and letter date.
+Everything below is plain text or simple values inside `index.html` and `style.css`.
 
 ### Photos
 Open `assets/images/` and replace any file while **keeping the same filename**, or change the `src="assets/images/..."` path on the relevant `<img>` tag in `index.html` to point to a new file. Recommended sizes: hero portrait ~800×800px square, gallery photos ~1000×1000px, Klawie photos ~1200×1200px. Square-ish crops work best since several of these are shown in circles or fixed-ratio frames.
@@ -108,10 +98,11 @@ The actual audio file path is set in the `<source src="assets/music/a-couple-min
 
 ---
 
-## 5. Ideas to make it even more personal
+## 5. Ideas for next year
 
-- Replace one or two of the generic love-card lines with a real inside joke only she'd recognize - those land hardest.
-- Add a real specific memory to the letter (a trip, a date, a small moment) in place of the more general lines - even one concrete detail makes the whole letter feel more "her."
-- If you have a voice memo of yourself, you could add a second `<audio>` element with a "play my voice" secret message button instead of (or alongside) the song.
-- Consider adding a countdown or a "days we've been together" counter near the hero if that number means something to you both - happy to build that in if you want it.
-- If you want a literal handwritten note, you could scan one and drop it in as an image inside the letter section instead of (or alongside) the typed letter.
+- Replace one or two of the love-card lines with a real inside joke only she'd recognize.
+- Add a real specific memory to the letter (a trip, a date, a small moment) in place of the more general lines.
+- A voice memo of yourself, you could add a second `<audio>` element with a "play my voice" secret message button instead of (or alongside) the song.
+- Consider adding a countdown or a "days we've been together" counter near the hero.
+- Maybe a literal handwritten note, scan one and drop it in as an image inside the letter section instead of (or alongside) the typed letter.
+- Add easter eggs accross the whole page.

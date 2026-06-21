@@ -6,40 +6,12 @@
 <title>For Daphine - Happy Birthday!!!</title>
 <meta name="description" content="A little corner of the internet made just for you, Daphine.">
 
-<!--
-  ============================================================================
-  FOR DAPHINE - a birthday website by RJ
-  ============================================================================
-  This file is organized into the same chapters you'll scroll through:
-    1. Hero / Opening Screen
-    2. Things I Love About You
-    3. The Letter
-    4. Klawie - Forever Loved
-    5. Memory Gallery
-    6. Secret Messages
-    7. Music Player (floating, lives across the whole page)
-    8. Finale - One Last Thing
-
-  WHERE TO CHANGE THINGS:
-  - Her name, your name, the birthday date → search this file for "Daphine",
-    "RJ", and "June 16" and replace them.
-  - Every block of writing (letters, love-list, secret notes) is plain text
-    inside the HTML below - just type over it.
-  - Photos live in assets/images/ - swap the files or change the "src"
-    paths. Filenames are descriptive (gallery-01.jpg, klawie-01.jpg, etc).
-  - The full walkthrough is in README.md.
-  ============================================================================
--->
-
-<!-- Google Fonts: an elegant display serif, a clean body sans, and a
-     handwritten script for emotional accents. These load from Google's
-     servers, so an internet connection is needed the first time the page
-     opens (the browser then caches them). -->
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 
-<link rel="icon" href="/assets/images/favicon.jpg" type="image/x-icon">
+<link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -242,8 +214,7 @@
 <!-- ========================================================================
      3. THE LETTER
      A handwritten-style letter that types itself out as it scrolls into
-     view. CUSTOMIZE: the full letter text is inside #letterText - edit
-     freely, the typewriter effect works with any length of text.
+     view. CUSTOMIZE: the full letter text is inside #letterText - the typewriter effect works with any length of text.
      ======================================================================== -->
 <section id="letter" class="section letter-section">
   <div class="section-head">
@@ -279,8 +250,7 @@ RJ">
 <!-- ========================================================================
      4. KLAWIE - FOREVER LOVED
      A gentle, warm memorial. Soft fireflies drift in the background and a
-     trail of paw prints leads through the section. CUSTOMIZE: cat's name,
-     photos, and the memory text are clearly marked below.
+     trail of paw prints leads through the section.
      ======================================================================== -->
 <section id="klawie" class="section klawie-section">
   <div class="firefly-field" aria-hidden="true"></div>
@@ -443,7 +413,7 @@ RJ">
 </div>
 
 <!-- The actual audio element. CUSTOMIZE: place your mp3 at
-     assets/music/a-couple-minutes.mp3 - see README.md for details. -->
+     assets/music/a-couple-minutes.mp3 -->
 <audio id="bgMusic" loop preload="none">
   <source src="assets/music/a-couple-minutes.mp3" type="audio/mpeg">
 </audio>

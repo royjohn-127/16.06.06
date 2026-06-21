@@ -13,8 +13,6 @@
      9. Music player
      10. Finale (starfield, floating hearts, reveal button)
 
-   Nothing here needs a build step - it's plain JavaScript, loaded once at
-   the bottom of index.html after the page content.
    ============================================================================ */
 
 // Respect the visitor's OS-level "reduce motion" setting. Heavy looping
@@ -181,8 +179,8 @@ const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduc
 
 /* ----------------------------------------------------------------------------
    5. LETTER - typewriter effect
-   The full letter text lives in the data-full-text attribute (see
-   index.html) so it stays easy to edit as plain text. This script types it
+   The full letter text lives in the data-full-text attribute
+   so it stays easy to edit as plain text. This script types it
    out character by character once the letter scrolls into view, and only
    runs once.
    ---------------------------------------------------------------------------- */
