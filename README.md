@@ -1,6 +1,6 @@
 # For Daphine - Birthday Website
 
-A complete, self-contained romantic birthday website for Daphine, built with plain HTML, CSS, and JavaScript. No build tools, no frameworks, no installation - just open it in a browser.
+A complete, self-contained birthday website built with plain HTML, CSS, and JavaScript.
 
 ---
 
@@ -18,7 +18,7 @@ romantic-site/
     │   ├── gallery-01.jpg … gallery-08.jpg   (Memory Gallery polaroids)
     │   └── klawie-01.jpg, klawie-02.jpg      (Klawie memorial photos)
     └── music/
-        └── replace with the real mp3
+        └── mp3 file
 ```
 
 ---
@@ -33,20 +33,17 @@ romantic-site/
 3. Drop it into `assets/music/`.
 4. Reload the page - the floating music player in the bottom-right corner will now play it when tapped.
 
-Browsers block audio from auto-playing with sound, so the song intentionally starts only when she taps the play button.
+Browsers block audio from auto-playing with sound, so the song intentionally starts only when the play button is tapped.
 
 ---
 
 ## 3. Customization guide
-
-Everything below is plain text or simple values inside `index.html` and `style.css`.
-
 ### Photos
 Open `assets/images/` and replace any file while **keeping the same filename**, or change the `src="assets/images/..."` path on the relevant `<img>` tag in `index.html` to point to a new file. Recommended sizes: hero portrait ~800×800px square, gallery photos ~1000×1000px, Klawie photos ~1200×1200px. Square-ish crops work best since several of these are shown in circles or fixed-ratio frames.
 
 ### Written content (letter, love cards, secret messages)
-All copy lives directly inside `index.html` as plain text:
-- The full birthday letter is the `data-full-text="..."` attribute on the `<div id="letterText">` element - edit it like a normal paragraph, line breaks included.
+All copies live directly inside `index.html` as plain text:
+- The full birthday letter is the `data-full-text="..."` attribute on the `<div id="letterText">` element - edit it like a normal paragraph, line breaks are included.
 - Each "Things I Love About You" card is a `<button class="love-card">` block - edit the `<h3>` (front label) and the `<p>` inside `.card-back` (the revealed message).
 - Each secret message is a `<button class="secret-item" data-message="...">` - just change the text inside `data-message`.
 - The Klawie memorial text is inside `.memorial-text` - three `<p>` paragraphs plus the quote.
@@ -94,15 +91,6 @@ The actual audio file path is set in the `<source src="assets/music/a-couple-min
 - **Music player bars** - three small bars animate up and down only while the song is actually playing, giving a now-playing visual cue.
 - **Finale starfield** - another small `<canvas>` particle system, this time stars that twinkle by oscillating their opacity with a sine wave.
 - **Floating hearts** - small heart characters spawn continuously at the bottom of the finale and float upward, fading out; clicking "One Last Thing…" triggers an extra burst of 18 hearts at once.
-- **Reduced motion** - every animation above checks (or is wrapped in CSS that checks) `prefers-reduced-motion`, so if her device has that accessibility setting on, animations are minimized automatically.
+- **Reduced motion** - every animation above checks (or is wrapped in CSS that checks) `prefers-reduced-motion`, so if a device has that accessibility setting on, animations are minimized automatically.
 
 ---
-
-## 5. Ideas for next year
-
-- Replace one or two of the love-card lines with a real inside joke only she'd recognize.
-- Add a real specific memory to the letter (a trip, a date, a small moment) in place of the more general lines.
-- A voice memo of yourself, you could add a second `<audio>` element with a "play my voice" secret message button instead of (or alongside) the song.
-- Consider adding a countdown or a "days we've been together" counter near the hero.
-- Maybe a literal handwritten note, scan one and drop it in as an image inside the letter section instead of (or alongside) the typed letter.
-- Add easter eggs accross the whole page.
